@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 /**
- *  por defecto al utilizar @Entity sin parametros este creara una tabla 
+ *  por defecto al utilizar @Entity sin parametros este creara una tabla
  *  con nombre igual al nombre de la clase en plural
  */
 @Entity()
@@ -14,6 +14,6 @@ export class User {
   password: string;
   @Column({ type: "datetime", default: () => "CURRENT_TIMESTAMP" })
   createdAt: Date;
-  @Column()
+  @Column({ default: "no strategy" })
   authStrategy: string;
 }
